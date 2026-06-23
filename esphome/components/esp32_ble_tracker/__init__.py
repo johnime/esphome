@@ -236,7 +236,7 @@ async def to_code(config):
         trigger = cg.new_Pvariable(conf[CONF_TRIGGER_ID], var)
         await automation.build_automation(trigger, [], conf)
 
-    if CORE.using_esp_idf:
+    if CORE.is_esp32:
         add_idf_sdkconfig_option("CONFIG_BT_ENABLED", True)
 
     cg.add_define("USE_OTA_STATE_CALLBACK")  # To be notified when an OTA update starts
