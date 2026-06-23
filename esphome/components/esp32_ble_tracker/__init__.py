@@ -216,7 +216,7 @@ async def to_code(config):
             cg.add(trigger.set_address(conf[CONF_MAC_ADDRESS].as_hex))
         await automation.build_automation(trigger, [(adv_data_t_const_ref, "x")], conf)
 
-    if CORE.using_esp_idf:
+    if CORE.is_esp32:
         add_idf_sdkconfig_option("CONFIG_BT_ENABLED", True)
 
 
